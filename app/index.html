@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>电影展示</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/wap.css">
+</head>
+
+<body ng-app="moviecat">
+    <!-- 顶部导航栏开始 -->
+    <div class="top" ng-controller="MainController">
+        <div class="header">
+            <a href="#/home_page"></a>
+            <div class="search">
+                <input class="my-input" type="text" ng-model="searchText" placeholder="电影搜索">
+                <button ng-click="search()">搜索</button>
+            </div>
+        </div>
+        <nav class="nav" menu-active></nav>
+    </div>
+    <!-- 顶部导航栏结束 -->
+
+    <div class="container" ng-view></div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>版权所有&copy; </p>
+        </div>
+    </footer>
+    <!-- 作用：自动添加css3浏览器兼容前缀 -->
+    <script src="assets/js/prefixfree.min.js"></script>
+    <!-- 引入 angularjs 文件 -->
+    <script src="./assets/js/angular.js"></script>
+    <!-- 引入 angular-route 文件 -->
+    <script src="./assets/js/angular-route.js"></script>
+    <!-- 引入 主模块 -->
+    <script src="app.js"></script>
+    <!-- 引入 服务模块（jsonp）-->
+    <script src="./common/jsonpService.js"></script>
+    <!-- 引入 首页模块 -->
+    <script src="./home_page/module.js"></script>
+    <!-- 引入 电影列表模块 -->
+    <script src="./movie_list/module.js"></script>
+    <!-- 引入 电影详情模块 -->
+    <script src="./details/module.js"></script>
+    <!-- 引入 自定义指令模块（菜单） -->
+    <script src="./common/directive/menuDirective.js"></script>
+
+    <!-- 引入 正在热映模块
+    <script src="./in_theaters/module.js"></script>
+    引入 即将上映
+    <script src="./coming_soon/module.js"></script>
+    引入 top250 
+    <script src="./top250/module.js"></script>-->
+</body>
+
+</html>

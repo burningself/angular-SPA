@@ -1,0 +1,24 @@
+<!--电影列表开始-->
+<div class="list">
+  <ul>
+    <li ng-repeat="movie in data.subjects track by $index">
+      <a href="#/details">
+          <!-- 浏览器解析 src 的时机要比 angular 解析表达式的时机要早！
+            因此，浏览器会把 {{ movie.images.large }} 当作图片的路径来请求
+           -->
+          <img ng-src="{{ movie.images.large }}" alt="">
+      </a>
+      <div class="meta">
+        <h4><span ng-bind="movie.title"></span> <em ng-bind="movie.rating.average + '分'"></em></h4>
+        <div class="otherinfo">类型:<span ng-repeat="g in movie.genres track by $index" ng-bind="g"></span></div>
+      </div>
+    </li>
+  </ul>
+  <div class="paging">
+    <label>总共：{{ data.total }}条记录,第{{ page }}/{{ totalPage }}页;</label>
+    <!-- 加上disable类样式，表示按钮禁用状态 -->
+    <button class="prev" ng-class="{disable: page <= 1}" ng-click="goPage(page - 1)">上一页</button>
+    <button class="next" ng-class="{disable: page >= totalPage}" ng-click="goPage((page-0) + 1)">下一页</button>
+  </div>
+</div>
+<!--电影列表结束-->
